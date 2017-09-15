@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE CATALOG [<!ENTITY xml "Extensible Markup Language">]>
+
+<Stage>
+    <Window heigth="600" 
+	    width="800"
+	    players="1"
+        characterScale="2.0"
+        windowScale="1.0"
+        gameMode="co-op">
+
+    </Window>
+    <Sprites>
+    	<Sprite id="red"
+	            path = "Images/characters/sprites-char-1.png"
+	            zindex="1"
+	            heigth = "12"
+	            width = "234">
+    	</Sprite>
+	    <Sprite id="blue"
+	            path = "Images/characters/sprites-char-2.png"
+	            zindex="1"
+	            heigth = "12"
+	            width = "234">
+    	</Sprite>
+	    <Sprite id="purple"
+	            path = "Images/characters/sprites-char-3.png"
+	            zindex="1"
+	            heigth = "12"
+	            width = "234">
+    	</Sprite>
+	    <Sprite id="green"
+	            path = "Images/characters/sprites-char-4.png"
+	            zindex="1"
+	            heigth = "12"
+	            width = "234">
+    	</Sprite>
+	    <Sprite id="white"
+	            path = "Images/characters/sprites-char-5.png"
+	            zindex="1"
+	            heigth = "12"
+	            width = "234">
+    	</Sprite>
+	    <Sprite id="black"
+	            path = "Images/characters/sprites-char-6.png"
+	            zindex="1"
+	            heigth = "12"
+	            width = "234">
+    	</Sprite>
+	    <Sprite id="cheat"
+	            path = "Images/characters/sprites-char-7.png"
+	            zindex="1"
+	            heigth = "12"
+	            width = "234">
+    	</Sprite>
+    	<Sprite id="Melee"
+	            path = "Images/enemy/normal/FatZombie.png"
+	            zindex="1"
+	            heigth = "12"
+	            width = "234"
+	            div1="0" div2="2" div3="1" div4="1" div5="2" div6="0" div7="0">
+    	</Sprite>
+    	<Sprite id="Range"
+	            path = "Images/enemy/normal/Zombie3.png"
+	            zindex="1"
+	            heigth = "12"
+	            width = "234"
+	            div1="0" div2="1" div3="1" div4="1" div5="0" div6="1" div7="0">
+    	</Sprite>
+    </Sprites>
+    <Backgrounds>
+	   <Background id="1"
+                       path="Images/fondos/nivel1/"
+                       zindex="1">
+        </Background>
+    </Backgrounds>
+</Stage>

@@ -1,0 +1,49 @@
+client:   ./ui/ClientUI.o  ./ui/ClientUIController.o   LoremIpsum.o Client.o ./clientGameLogic/GameReloader.o  ./clientGameLogic/GameInputCommand.o ./clientGameLogic/EventHandler.o ./clientGameLogic/GameRefresher.o ./clientGameLogic/Graphics.o clientGameLogic/Background.o clientGameLogic/Information.o ./network/Connection.o main.o
+	g++ -O0 -g3 -o  client  ./../common/utils/Exception.o ./../common/utils/Tokenizer.o ./ui/ClientUI.o ./clientGameLogic/GameReloader.o ./ui/ClientUIController.o ./../common/network/Socket.o   ./network/Connection.o ./../estructurasDeDatos/User.o ./../estructurasDeDatos/Node.o ./../common/game/LTexture.o ./../common/game/GameImage.o ./../common/game/CharacterImage.o ./../common/game/AnimationImage.o ./../common/game/RocketLauncherImage.o ./../common/game/RocketAmmoImage.o ./../common/game/TankEnemyImage.o ./../common/game/FlameShotImage.o ./../common/game/FlameAmmoImage.o ./../common/game/BigEyesLaserImage.o ./../common/game/ZombieShotImage.o ./../common/game/SingleShotImage.o ./../common/game/SingleShotAmmoImage.o ./../common/game/KillBonusImage.o ./../common/game/HealBonus.o ./../common/game/EnemyImage.o ./../common/game/BossImage.o ./../common/game/MeleeEnemyImage.o ./../common/game/UfoEnemyImage.o ./../common/game/EyesEnemyImage.o ./../common/game/RangeEnemyImage.o ./../common/game/BackgroundImage.o  ./../estructurasDeDatos/ClientGameStatus.o ./../common/network/Communication.o ./../common/threads/Thread.o ./../common/logger/Logger.o  ./../common/logger/FileAppender.o LoremIpsum.o Client.o ./clientGameLogic/GameInputCommand.o ./clientGameLogic/EventHandler.o ./clientGameLogic/GameRefresher.o ./clientGameLogic/Graphics.o clientGameLogic/Background.o clientGameLogic/Information.o main.o  -lpthread -pthread -lSDL2 -lSDL2_image -lSDL2_ttf 
+	
+
+main.o: Client.h main.cpp 
+	g++ -c main.cpp -std=c++98
+
+Connection: ../Client.h ../common/utils/Constants.h ../common/threads/Thread.h network/Connection.h network/Connection.cpp
+	g++ -c Connection.cpp -std=c++98
+
+Client.o: ../common/network/Communication.h ../common/utils/Constants.h Client.cpp
+	g++ -c Client.cpp -std=c++98
+
+ClientUI.o:	ui/ClientUI.h ui/ClientUI.cpp
+	g++ -c ClientUI.cpp -std=c++98 
+
+
+Background.o: clientGameLogic/Background.h  clientGameLogic/Background.cpp 
+	g++ -c Background.cpp -std=c++98
+
+Information.o: clientGameLogic/Information.h  clientGameLogic/Information.cpp 
+	g++ -c Information.cpp -std=c++98 -lSDL2 -lSDL2_ttf
+
+GameReloader.o:  clientGameLogic/GameReloader.h clientGameLogic/GameReloader.cpp
+	g++ -c GameReloader.cpp -std=c++98
+Graphics.o: clientGameLogic/GameRefresher.h clientGameLogic/EventHandler.h  clientGameLogic/Graphics.h clientGameLogic/Graphics.cpp 
+	g++ -c Graphics.cpp  -w -lSDL2 -lSDL2_image -lSDL2_ttf -std=c++98
+	
+
+GameRefresher.o: ../common/threads/Thread.h clientGameLogic/Background.h clientGameLogic/Information.h clientGameLogic/Graphics.h  Client.h clientGameLogic/GameRefresher.h  clientGameLogic/GameRefresher.cpp 
+	g++ -c GamerRefresher.cpp  -w -lSDL2 -lSDL2_image -std=c++98
+
+GameInputCommand.o: clientGameLogic/GameInputCommand.h clientGameLogic/GameInputCommand.cpp 
+	g++ -c Graphics.cpp  -w -lSDL2 -lSDL2_image -std=c++98
+
+EventHandler.o: clientGameLogic/GameInputCommand.h  clientGameLogic/EventHandler.h clientGameLogic/EventHandler.cpp 
+	g++ -c Graphics.cpp  -w -lSDL2 -lSDL2_image -std=c++98
+
+ClientUIController.o: ui/ClientUIController.h ui/ClientUIController.cpp
+	g++  -c ClientUIController.cpp -w -lSDL2 -lSDL2_image -std=c++98
+
+
+LoremIpsum.o:	LoremIpsum.h LoremIpsum.cpp
+	g++ -c LoremIpsum.cpp -std=c++98
+
+clean:
+	rm -f client *.o
+	rm -f ui/*.o
+	rm -f clientGameLogic/*.o
